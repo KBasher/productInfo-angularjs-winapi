@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="productcatApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Product Management</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="/Content/Skin.css" rel="stylesheet" />
+    <link href="/Content/container.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-route.js"></script>
+    <script src="/Scripts/angular-resource.js"></script>
+    <script src="/Scripts/angular-file-upload.js"></script>
+    <script src="/Scripts/app/app.js"></script>
+    <script src="/Scripts/app/services.js"></script>
+    <script src="/Scripts/app/controllers.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <style type="text/css">
+        [class*="col-lg"] {
+            float: none;
+            display: table-cell;
+            vertical-align: top;
+            vertical-align:middle;
+        }
+        [class*="col-"] {
+            box-shadow: none !important;
+        }
+        #contentWrapper .row
+        {
+            margin-bottom:15px !important;
+        }
+        .row
+        {
+            margin-left:0px !important;
+            margin-right:0px !important;
+        }
+    </style>
+</head>
+<body id="Body">
+    <div id="siteWrapper">
+        <div id="LoginWrapper">
+            <div id="LoginInner" class="container">
+        	    <nav class="navbar navbar-default" role="navigation">
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse-login">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#"></a>
+                   </div>
+                   <div class="collapse navbar-collapse" id="example-navbar-collapse-login">
+                      <form class="navbar-form navbar-right" role="form">
+                        <div class="form-group">
+                          <input placeholder="Email" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                          <input placeholder="Password" class="form-control" type="password">
+                        </div>
+                        <button type="submit" class="btn btn-success">Sign in</button>
+                      </form>
+                   </div>
+                </nav>
+            </div>
+        </div>
+        <div id="siteHeadouter">
+            <div id="siteHeadinner" class="container">
+        	    <nav class="navbar navbar-default" role="navigation">
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse-menu">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Home</a>
+                   </div>
+                   <div class="collapse navbar-collapse" id="example-navbar-collapse-menu">
+                      <ul class="nav navbar-nav">
+                         <li class="active"><a href="#">Product List</a></li>
+                         <li><a href="#">Product Details</a></li>
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                               Mobile 
+                               <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                               <li><a href="#">Nokia</a></li>
+                               <li><a href="#">Samsung</a></li>
+                               <li><a href="#">Windows</a></li>
+                            </ul>
+                         </li>
+                      </ul>
+                   </div>
+                </nav>
+            </div>    
+        </div>
+        <div id="contentWrapper">
+            <div class="container">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

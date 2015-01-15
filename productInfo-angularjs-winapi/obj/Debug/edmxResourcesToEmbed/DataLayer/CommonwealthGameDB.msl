@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CommonwealthGameModelStoreContainer" CdmEntityContainer="CommonwealthGameEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="CommonwealthGameModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="CommonwealthGameModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phones">
+      <EntityTypeMapping TypeName="CommonwealthGameModel.Phone">
+        <MappingFragment StoreEntitySet="Phone">
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhoneDetails">
+      <EntityTypeMapping TypeName="CommonwealthGameModel.PhoneDetail">
+        <MappingFragment StoreEntitySet="PhoneDetail">
+          <ScalarProperty Name="phoneId" ColumnName="phoneId" />
+          <ScalarProperty Name="storage" ColumnName="storage" />
+          <ScalarProperty Name="ram" ColumnName="ram" />
+          <ScalarProperty Name="ui" ColumnName="ui" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhoneDetailImages">
+      <EntityTypeMapping TypeName="CommonwealthGameModel.PhoneDetailImage">
+        <MappingFragment StoreEntitySet="PhoneDetailImage">
+          <ScalarProperty Name="phoneDetailId" ColumnName="phoneDetailId" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

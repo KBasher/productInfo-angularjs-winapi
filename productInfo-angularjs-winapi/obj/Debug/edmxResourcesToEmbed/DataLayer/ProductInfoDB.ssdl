@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductInfoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProductInfoModelStoreContainer">
+    <EntitySet Name="Product" EntityType="ProductInfoModel.Store.Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductDetail" EntityType="ProductInfoModel.Store.ProductDetail" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ProductDetail_Product" Association="ProductInfoModel.Store.FK_ProductDetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductDetail" EntitySet="ProductDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="imageUrl" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProductDetail">
+    <Key>
+      <PropertyRef Name="productId" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="productId" Type="int" Nullable="false" />
+    <Property Name="number" Type="int" />
+    <Property Name="price" Type="decimal" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_ProductDetail_Product">
+    <End Role="Product" Type="ProductInfoModel.Store.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductDetail" Type="ProductInfoModel.Store.ProductDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductDetail">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CommonwealthGameModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CommonwealthGameEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="CommonwealthGameModel.Country" />
+    <EntitySet Name="Players" EntityType="CommonwealthGameModel.Player" />
+    <AssociationSet Name="FK_Player_Country" Association="CommonwealthGameModel.FK_Player_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+    <EntitySet Name="Phones" EntityType="CommonwealthGameModel.Phone" />
+    <EntitySet Name="PhoneDetails" EntityType="CommonwealthGameModel.PhoneDetail" />
+    <EntitySet Name="PhoneDetailImages" EntityType="CommonwealthGameModel.PhoneDetailImage" />
+    <AssociationSet Name="FK_PhoneDetail_Phone" Association="CommonwealthGameModel.FK_PhoneDetail_Phone">
+      <End Role="Phone" EntitySet="Phones" />
+      <End Role="PhoneDetail" EntitySet="PhoneDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhoneDetailImage_PhoneDetail" Association="CommonwealthGameModel.FK_PhoneDetailImage_PhoneDetail">
+      <End Role="PhoneDetail" EntitySet="PhoneDetails" />
+      <End Role="PhoneDetailImage" EntitySet="PhoneDetailImages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Players" Relationship="CommonwealthGameModel.FK_Player_Country" FromRole="Country" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CountryId" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Country" Relationship="CommonwealthGameModel.FK_Player_Country" FromRole="Player" ToRole="Country" />
+  </EntityType>
+  <Association Name="FK_Player_Country">
+    <End Type="CommonwealthGameModel.Country" Role="Country" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CommonwealthGameModel.Player" Role="Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="imageUrl" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneDetails" Relationship="CommonwealthGameModel.FK_PhoneDetail_Phone" FromRole="Phone" ToRole="PhoneDetail" />
+  </EntityType>
+  <EntityType Name="PhoneDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="os" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ui" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ram" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="storage" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="phoneId" />
+    <NavigationProperty Name="Phone" Relationship="CommonwealthGameModel.FK_PhoneDetail_Phone" FromRole="PhoneDetail" ToRole="Phone" />
+    <NavigationProperty Name="PhoneDetailImages" Relationship="CommonwealthGameModel.FK_PhoneDetailImage_PhoneDetail" FromRole="PhoneDetail" ToRole="PhoneDetailImage" />
+  </EntityType>
+  <EntityType Name="PhoneDetailImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="imageUrl" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="phoneDetailId" />
+    <NavigationProperty Name="PhoneDetail" Relationship="CommonwealthGameModel.FK_PhoneDetailImage_PhoneDetail" FromRole="PhoneDetailImage" ToRole="PhoneDetail" />
+  </EntityType>
+  <Association Name="FK_PhoneDetail_Phone">
+    <End Type="CommonwealthGameModel.Phone" Role="Phone" Multiplicity="0..1" />
+    <End Type="CommonwealthGameModel.PhoneDetail" Role="PhoneDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phone">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PhoneDetail">
+        <PropertyRef Name="phoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhoneDetailImage_PhoneDetail">
+    <End Type="CommonwealthGameModel.PhoneDetail" Role="PhoneDetail" Multiplicity="0..1" />
+    <End Type="CommonwealthGameModel.PhoneDetailImage" Role="PhoneDetailImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhoneDetail">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PhoneDetailImage">
+        <PropertyRef Name="phoneDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,87 @@
+﻿body {
+	background-color: #efefef !important;
+}
+#dnn_dnnSearch_txtSearch {
+	display: block;
+	float: left;
+	width: 160px;
+	height: 32px;
+	padding: 0 5px 0 10px;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	outline: none;
+	border-left: 1px solid #ddd;
+	color: #000;
+	line-height: 32px;
+	font-size: 11px;
+	-webkit-transition: all 100ms ease-in-out;
+	-moz-transition: all 100ms ease-in-out;
+	-ms-transition: all 100ms ease-in-out;
+	-o-transition: all 100ms ease-in-out;
+	transition: all 100ms ease-in-out;
+}
+#search a.SearchButton:link, #search a.SearchButton:visited {
+	display: inline-block;
+	float: right;
+	height: 32px;
+	width: 32px;
+	margin: 0;
+	padding: 0;
+	background: #333 url('/Images/search.png') no-repeat center center;
+	text-indent: -9999px;
+}
+.loginbtn, .registerbtn
+{
+	display: block;
+	position: relative;
+	height: 32px;
+	min-width: 12px;
+	padding: 10px 15px 0 15px;
+	color: #333;
+	font-size: 11px;
+	vertical-align: middle;
+	text-decoration:none;
+}
+
+.loginbtn:hover, .registerbtn:hover
+{
+	background: linear-gradient(to bottom, rgba(45,45,45,1) 0%,rgba(86,86,86,1) 100%);
+	color: #ddd;
+	text-shadow: 0px -1px 0px #333333;
+	text-decoration:none;
+}
+#siteHeadouter
+{
+	background-color:white;
+	background: #fff;
+	-webkit-box-shadow: 1px 50px 100px 0px #cacaca;
+	box-shadow: 1px 50px 100px 0px #cacaca;
+}
+#siteHeadinner {
+	padding: 36px 0;
+}
+#LoginInner
+{
+	padding: 0px 0px;
+}
+#copyright {
+	font-size: 12px;
+	color: #a6a6a6;
+	margin-bottom: 25px;
+}
+#copyright a:link, #copyright a:visited {
+	font-size: 12px;
+	color: #a6a6a6;
+}
+.imgDetails
+{
+	width:200px;
+}
+.imgSmall
+{
+	width: 100px !important;
+	height: 100px !important;
+}

@@ -1,0 +1,51 @@
+﻿<div id="header">
+    <h3>Details of {{product.name}}</h3>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <img class="imgDetails img-responsive" ng-src="{{product.imageUrl}}"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        Product Name:
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        {{product.name}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        Number:
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        {{product.ProductDetail.number}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        Price:
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        {{product.ProductDetail.price}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        Description:
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        {{product.ProductDetail.description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        Company Name:
+    </div>
+    <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        {{product.ProductDetail.companyName}}
+    </div>
+</div>
+<div class="row">
+    <button class="btn btn-large btn-cancel pull-right" ng-click="backToProduct()">Back</button>
+</div>
